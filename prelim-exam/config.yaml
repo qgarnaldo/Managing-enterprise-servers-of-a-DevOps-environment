@@ -1,0 +1,10 @@
+---
+  - hosts: all
+    vars:
+      item: qgarnaldo1
+      motd: qgarnaldo
+    roles:
+      - python
+      - java
+      - changemotd
+      - createuser
