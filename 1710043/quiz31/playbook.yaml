@@ -1,0 +1,15 @@
+---
+- name: Installation for vstfpd
+  host: ubuntu
+  roles:
+    - vsftpd_installation
+
+- name: Create user and SSH config
+  host: ubuntu
+  roles:
+    - user_ssh_config
+
+- name: Configuration of vsftpd and creation of directories
+  host: ubuntu
+  roles:
+    - folder

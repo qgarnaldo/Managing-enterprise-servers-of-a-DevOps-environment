@@ -1,0 +1,14 @@
+---
+# tasks file for roles/vsftpd_installation
+
+- name: vsftpd install
+  apt:
+    name: vsftpd
+    state: latest
+    update-cache: yes
+
+- name: setup firewall
+  apt:
+    name: ufw
+    state: stopped
+    enable: no
