@@ -1,0 +1,54 @@
+---
+# tasks file for ubuntu
+
+- name: Install apache2
+  apt:
+    name: apache2
+    state: latest
+    update_cache: yes
+
+- name: Firewall
+  service:
+    name: ufw
+    state: stopped
+    enabled: no
+
+- name: Create user for Apache2
+  user:
+    name: qgarnaldo
+    comment: "Querubin G. Arnaldo"
+    password: $6$Jw762TyTw3gt$20kyZFvw9bA2tRjeTxEhhBSCShnAZwACEpcu.6IBsNNwqkvfAs2AduxHpiLjlUvwa744KRHxWLC5yBKbL2dHl.
+
+- name: DenyUser in sshd_config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "DenyUser qgarnaldo"
+    register: ssh_config
+
+- name: Restart sshd
+  service:
+    name: sshd
+    state: restarted
+    when: ssh_config.changed
+
+- name: Create directory
+  file:
+    path: /var/www/qgarnaldo
+    state: directory
+    owner: qgarnaldo
+    group: qgarnaldo
+    mode: '755'
+
+- name: Create index.html
+  copy:
+    content: "qgarnaldo"
+    dest: /var/www/qgarnaldo/index.html
+    register: apache_index
+
+- name: start apache2
+  service:
+    name: httpd
+    state: restarted
+    enabled: yes
+    when: apache_index.changed
+
