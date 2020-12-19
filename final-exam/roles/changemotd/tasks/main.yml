@@ -1,0 +1,7 @@
+---
+# tasks file for changemotd
+
+- name: Change motd
+  lineinfile:
+    path: /etc/motd
+    line: "Ansible managed by {{ username }}"

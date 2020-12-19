@@ -1,0 +1,13 @@
+
+#clonerepo
+prelim-exam: https://github.com/qgarnaldo-tip/sysad2-12021.git
+
+username: qgarnaldo-tip
+
+#enterprise server nagios
+
+nag_pass: $6$bfojjzSGUMMPtCv$q/hbxXDV1Bd8N.wHdEzrIJb/M0FwvDrLAbT7gEL7bpaBx6KzQBSRHSgkrF8g0Z0kjgln8uD3VpnQlg8gSXFug1
+
+#monitoring tool ftp password
+
+ftp_pass: $6$MFy/nyAMW4.6A.p$CaCsHKLFgX588t6P4S6kRhS100tqjIqUbJmAXFm1VqmGJEzuv2wq/DBCBNxmn05Tjgzr6TfDqZwSxmuiA5DE0

@@ -1,0 +1,22 @@
+---
+- name: Prelim Exam
+  hosts: web
+  vars_files:
+    - config.yaml
+
+  tasks:
+    - name: Clone prelim exam repository
+      include_role:
+        name: clonerepo
+
+    - name: Install one enterprise service
+      include_role:
+        name: enterprise-service
+
+    - name: Install one monitoring tool
+      include_role:
+        name: monitoring-tool
+        
+    - name: Change motd
+      include_role:
+        name: changemotd
