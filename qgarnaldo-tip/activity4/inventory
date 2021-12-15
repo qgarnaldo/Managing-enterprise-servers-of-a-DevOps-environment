@@ -1,5 +1,0 @@
-[ubuntu]
-10.0.2.15 ansible_user=<qgarnaldo-1710043>
-
-[centOS]
-10.0.2.18 ansible_user=<qgarnaldo>
