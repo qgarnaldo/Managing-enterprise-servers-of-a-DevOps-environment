@@ -1,6 +1,0 @@
----
-# tasks file for roles/changemotd
- - name: changemotd
-   lineinfile:
-     path: etc/motd
-     line: sh -c `echo "Ansible Managed Node by {{ qgarnaldo }}" 
